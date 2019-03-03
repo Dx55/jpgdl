@@ -7,4 +7,4 @@ def dl_jpg(url, file_path, file_name):
 url = input("Enter URL\n")
 file_name = input("Enter name\n")
 
-dl_jpg(url, 'C:/Users/name/Downloads/image', file_name)
+dl_jpg(url, '/Downloads/image', file_name)
