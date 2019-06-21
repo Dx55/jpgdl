@@ -1,10 +1,14 @@
-import urllib.request
+#Dx55
 
-def dl_jpg(url, file_path, file_name):
-    full_path = file_path + file_name + '.jpg'
-    urllib.request.urlretrieve(url, full_path)
+import requests
+import shutil
 
-url = input("Enter URL\n")
-file_name = input("Enter name\n")
+x = str(input("Link\n"))
+y = str(input("Name\n"))
 
-dl_jpg(url, '/Downloads/image', file_name)
+r = requests.get(x, stream=True, headers={'User-agent': 'Mozilla/5.0'})
+if r.status_code == 200:
+    with open(str(y + ".jpg"), 'wb') as f:
+        r.raw.decode_content = True
+        shutil.copyfileobj(r.raw, f)
+        
